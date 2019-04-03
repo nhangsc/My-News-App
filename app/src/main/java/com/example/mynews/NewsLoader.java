@@ -8,7 +8,7 @@ import java.util.List;
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     private static String REQUEST_URL =
-            "http://content.guardianapis.com/search?show-tags=contributor&api-key=test";
+            "https://content.guardianapis.com/search?api-key=e61714d1-2de3-420f-aace-6270490fb304";
 
     public NewsLoader(Context context) {
         super(context);

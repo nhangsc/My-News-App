@@ -28,7 +28,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         String title = currentNews.getmTitle();
         newsTitleTextView.setText(title);
 
-
         TextView newsSectiontextView = (TextView) listItemView.findViewById(R.id.section);
         String category = currentNews.getmSection();
         newsSectiontextView.setText(category);
