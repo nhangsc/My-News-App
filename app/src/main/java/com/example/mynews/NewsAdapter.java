@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class NewsAdapter extends ArrayAdapter<News> {
 
-    public NewsAdapter(Context context, ArrayList<News> news) {
+    NewsAdapter(Context context, ArrayList<News> news) {
         super(context, 0, news);
     }
 
@@ -24,21 +24,22 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
         News currentNews = getItem(position);
-        TextView newsTitleTextView = (TextView) listItemView.findViewById(R.id.title);
-        String title = currentNews.getmTitle();
-        newsTitleTextView.setText(title);
 
-        TextView newsSectiontextView = (TextView) listItemView.findViewById(R.id.section);
-        String category = currentNews.getmSection();
-        newsSectiontextView.setText(category);
+        TextView newsTitle = listItemView.findViewById(R.id.title);
+        String title = currentNews.getTitle();
+        newsTitle.setText(title);
 
-        TextView newsDatetextView = (TextView) listItemView.findViewById(R.id.date);
-        String date = currentNews.getmDate();
-        newsDatetextView.setText(date);
+        TextView newsDate = listItemView.findViewById(R.id.date);
+        String date = currentNews.getDate();
+        newsDate.setText(date);
 
-        TextView newsAuthortextView = (TextView) listItemView.findViewById(R.id.author);
-        String author = currentNews.getmAuthor();
-        newsAuthortextView.setText(author);
+        TextView newsSection = listItemView.findViewById(R.id.section);
+        String section = currentNews.getSection();
+        newsSection.setText(section);
+
+        TextView newsAuthor = listItemView.findViewById(R.id.author);
+        String author = currentNews.getAuthor();
+        newsAuthor.setText(author);
 
         return listItemView;
     }

@@ -1,33 +1,26 @@
 package com.example.mynews;
 
-public class News {
+class News {
     private String mTitle;
-    private String mSection;
     private String mDate;
-    private String mUrl;
+    private String mSection;
     private String mAuthor;
+    private String mUrl;
 
-    public News(String mTitle, String mSection, String mDate, String mUrl, String mAuthor) {
-        this.mTitle = mTitle;
-        this.mSection = mSection;
-        this.mDate = mDate;
-        this.mUrl = mUrl;
-        this.mAuthor = mAuthor;
+    News(String Title, String Section, String Date, String Url, String Author) {
+        this.mTitle = Title;
+        this.mDate = Date;
+        this.mSection = Section;
+        this.mAuthor = Author;
+        this.mUrl = Url;
     }
 
-    public String getmTitle() {
-        return mTitle;
-    }
-    public String getmSection() {
-        return mSection;
-    }
-    public String getmDate() {
-        return mDate;
-    }
-    public String getmUrl() {
+    String getTitle() { return mTitle; }
+    String getDate() { return mDate; }
+    String getSection() { return mSection; }
+    String getAuthor() { return mAuthor; }
+    String getUrl() {
         return mUrl;
     }
-    public String getmAuthor() {
-        return mAuthor;
-    }
+
 }

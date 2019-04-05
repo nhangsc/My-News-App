@@ -2,11 +2,9 @@ package com.example.mynews;
 
 import android.text.TextUtils;
 import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,11 +16,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueryUltis {
-    private QueryUltis() {
-    }
-
-    public static List<News> fetchNewsData(String requestUrl) {
+class QueryUltis {
+    private QueryUltis() { }
+    static List<News> fetchNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
 
         String jsonResponse = null;
@@ -32,9 +28,7 @@ public class QueryUltis {
             e.printStackTrace();
         }
 
-        List<News> newsList = extractFeatureFromJson(jsonResponse);
-
-        return newsList;
+        return extractFeatureFromJson(jsonResponse);
     }
 
     private static URL createUrl(String stringUrl) {
@@ -105,8 +99,6 @@ public class QueryUltis {
         }
 
         List<News> newsList = new ArrayList<>();
-
-
         try {
 
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
@@ -117,9 +109,9 @@ public class QueryUltis {
 
                 JSONObject currentResults = resultsArray.getJSONObject(i);
 
-                String Title = currentResults.getString("webTitle");
-                String category = currentResults.getString("sectionName");
+                String title = currentResults.getString("webTitle");
                 String date = currentResults.getString("webPublicationDate");
+                String section = currentResults.getString("sectionName");
                 String url = currentResults.getString("webUrl");
                 JSONArray tagsauthor = currentResults.getJSONArray("tags");
                 String author="";
@@ -127,10 +119,10 @@ public class QueryUltis {
                     JSONObject currenttagsauthor = tagsauthor.getJSONObject(0);
                     author = currenttagsauthor.getString("webTitle");
                 }else{
-                    author = "No Author ..";
+                    author = "No author found";
                 }
 
-                News news = new News(Title, category, date, url, author);
+                News news = new News(title, date, section, url, author);
 
                 newsList.add(news);
             }

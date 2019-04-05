@@ -2,15 +2,14 @@ package com.example.mynews;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
-
 import java.util.List;
 
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     private static String REQUEST_URL =
-            "https://content.guardianapis.com/search?api-key=e61714d1-2de3-420f-aace-6270490fb304";
+            "https://content.guardianapis.com/search?&show-tags=contributor&api-key=1205bd93-b6c3-4f90-9eac-eba3ff2c2b02";
 
-    public NewsLoader(Context context) {
+    NewsLoader(Context context) {
         super(context);
     }
 
