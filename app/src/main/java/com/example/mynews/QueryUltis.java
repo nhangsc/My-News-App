@@ -28,7 +28,7 @@ class QueryUltis {
             e.printStackTrace();
         }
 
-        return extractFeatureFromJson(jsonResponse);
+        return extractNews(jsonResponse);
     }
 
     private static URL createUrl(String stringUrl) {
@@ -41,7 +41,6 @@ class QueryUltis {
         }
         return url;
     }
-
 
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
@@ -93,7 +92,7 @@ class QueryUltis {
         return output.toString();
     }
 
-    private static List<News> extractFeatureFromJson(String newsJSON) {
+    private static List<News> extractNews(String newsJSON) {
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
